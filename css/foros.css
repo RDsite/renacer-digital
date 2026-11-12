@@ -1,0 +1,393 @@
+css
+/* =========================================
+   RDCA - RENACER DIGITAL
+   Página de foros y actividades
+   Diseño moderno y elegante
+========================================= */
+
+:root {
+    --rdca-purple: #7040d5;
+    --rdca-purple-dark: #472080;
+    --rdca-blue: #8fb8f7;
+    --rdca-green: #85d2b2;
+    --rdca-green-dark: #328a6a;
+    --rdca-text: #29243a;
+    --rdca-muted: #716b80;
+    --rdca-border: #e9e2f5;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(ellipse at 0% 5%, rgba(133, 210, 178, 0.12), transparent 32%),
+        radial-gradient(ellipse at 100% 10%, rgba(143, 184, 247, 0.15), transparent 35%),
+        linear-gradient(180deg, #fcfbff, #f8f7ff 65%, #f3f8ff);
+    color: var(--rdca-text);
+}
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.foros-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 75px 0 95px;
+}
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
+.foros-intro {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 58px;
+}
+
+.foros-intro .eyebrow {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    margin-bottom: 17px;
+    padding: 9px 16px;
+    border-radius: 30px;
+
+    color: #6035b2;
+    background: linear-gradient(110deg, #f0e9ff, #eaf4ff);
+    border: 1px solid #e1d7fa;
+    box-shadow: 0 5px 16px rgba(112, 64, 213, 0.07);
+}
+
+.foros-intro h1 {
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    color: var(--rdca-purple-dark);
+}
+
+.foros-intro p {
+    line-height: 1.9;
+    font-size: 15px;
+    color: var(--rdca-muted);
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   GRID DE ACTIVIDADES
+========================================= */
+
+.foros-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+.foro-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(233, 226, 245, 0.95);
+    border-radius: 23px;
+    overflow: hidden;
+
+    box-shadow: 0 12px 34px rgba(69, 32, 120, 0.065);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.foro-card::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    opacity: 0;
+    background: linear-gradient(90deg, #85d2b2, #8fb8f7, #7040d5);
+    transition: opacity 0.25s ease;
+}
+
+.foro-card:hover {
+    transform: translateY(-7px);
+    border-color: #d5c9f0;
+    box-shadow: 0 24px 48px rgba(69, 32, 120, 0.13);
+}
+
+.foro-card:hover::before {
+    opacity: 1;
+}
+
+/* =========================================
+   IMÁGENES
+========================================= */
+
+.foro-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+
+    background: linear-gradient(135deg, #e9f8f0, #eaf4ff, #f1eafe);
+}
+
+.foro-image::after {
+    content: "";
+    position: absolute;
+    inset: 45% 0 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent, rgba(35, 20, 62, 0.10));
+}
+
+.foro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.foro-card:hover .foro-image img {
+    transform: scale(1.055);
+}
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.foro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    padding: 28px;
+}
+
+.foro-category {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.35px;
+
+    margin-bottom: 15px;
+    padding: 7px 12px;
+    border-radius: 30px;
+
+    color: #6035b2;
+    background: linear-gradient(110deg, #f0e9ff, #eaf4ff);
+    border: 1px solid #e6def8;
+}
+
+.foro-content h2 {
+    font-size: 1.45rem;
+    line-height: 1.35;
+    letter-spacing: -0.4px;
+    margin: 0 0 13px;
+    color: var(--rdca-purple-dark);
+}
+
+.foro-content p {
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 22px;
+    color: var(--rdca-muted);
+}
+
+/* =========================================
+   INFORMACIÓN Y DURACIÓN
+========================================= */
+
+.foro-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+    color: var(--rdca-muted);
+}
+
+.foro-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 0.83rem;
+    font-weight: 600;
+
+    padding: 7px 10px;
+    border-radius: 9px;
+    background: #f7f5fc;
+    border: 1px solid #eee8f7;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.foro-button {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+
+    padding: 14px 18px;
+    border: none;
+    border-radius: 12px;
+
+    text-align: center;
+    font-size: 0.93rem;
+    font-weight: 800;
+
+    cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: white;
+
+    background: linear-gradient(115deg, #7040d5, #8052db 55%, #688fdd);
+    box-shadow: 0 8px 19px rgba(112, 64, 213, 0.19);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.foro-button:hover {
+    transform: translateY(-3px);
+    filter: saturate(1.08);
+    box-shadow: 0 13px 26px rgba(112, 64, 213, 0.28);
+}
+
+.foro-button:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   CONTENIDO PREMIUM
+========================================= */
+
+.premium-label {
+    font-weight: 800;
+    color: var(--rdca-green-dark);
+}
+
+.premium-button {
+    text-decoration: none;
+}
+
+/* =========================================
+   TABLETAS
+========================================= */
+
+@media (max-width: 900px) {
+    .foros-container {
+        width: 92%;
+        padding: 60px 0 75px;
+    }
+
+    .foros-grid {
+        gap: 22px;
+    }
+
+    .foro-image {
+        height: 220px;
+    }
+
+    .foro-content {
+        padding: 23px;
+    }
+}
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 650px) {
+    .foros-container {
+        width: 91%;
+        padding: 45px 0 60px;
+    }
+
+    .foros-intro {
+        margin-bottom: 38px;
+    }
+
+    .foros-intro .eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 1.2px;
+    }
+
+    .foros-intro h1 {
+        font-size: 32px;
+        letter-spacing: -0.8px;
+    }
+
+    .foros-intro p {
+        font-size: 14px;
+    }
+
+    .foros-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .foro-card {
+        border-radius: 20px;
+    }
+
+    .foro-image {
+        height: 215px;
+    }
+
+    .foro-content {
+        padding: 22px;
+    }
+
+    .foro-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .foro-content p {
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+.foro-button:focus-visible {
+    outline: 3px solid #8fb8f7;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .foro-card,
+    .foro-image img,
+    .foro-button,
+    .foro-card::before {
+        transition: none;
+    }
+
+    .foro-card:hover,
+    .foro-button:hover,
+    .foro-card:hover .foro-image img {
+        transform: none;
+    }
+}
+

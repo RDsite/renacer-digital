@@ -1,0 +1,500 @@
+
+
+.registro-page {
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+    background: #f0eaff;
+}
+
+/* FONDO ANIMADO */
+
+.registro-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+
+    background: linear-gradient(
+        125deg,
+        #d8ffec,
+        #e9ddff,
+        #d8efff,
+        #ffe5f2,
+        #d9fff1
+    );
+
+    background-size: 400% 400%;
+    animation: registroGradient 20s ease-in-out infinite;
+}
+
+@keyframes registroGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ESFERAS DIFUMINADAS */
+
+.registro-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: .6;
+    animation: registroOrbFloat 12s ease-in-out infinite alternate;
+}
+
+.registro-orb-one {
+    width: 450px;
+    height: 450px;
+    top: -150px;
+    left: -120px;
+    background: #79ebbf;
+}
+
+.registro-orb-two {
+    width: 500px;
+    height: 500px;
+    top: 20%;
+    right: -170px;
+    background: #b69cff;
+    animation-delay: -4s;
+}
+
+.registro-orb-three {
+    width: 350px;
+    height: 350px;
+    bottom: -120px;
+    left: 35%;
+    background: #a8dfff;
+    animation-delay: -7s;
+}
+
+@keyframes registroOrbFloat {
+    to {
+        transform: translate(65px, -50px) scale(1.2);
+    }
+}
+
+/* BURBUJAS */
+
+#registroBubbles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.registro-bubble {
+    position: absolute;
+    bottom: -130px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.7);
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        rgba(255,255,255,.85),
+        rgba(143,105,239,.12) 60%,
+        transparent
+    );
+
+    box-shadow: inset 0 0 20px rgba(255,255,255,.5);
+    animation: registroBubbleUp linear infinite;
+}
+
+@keyframes registroBubbleUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: .7;
+    }
+    85% {
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+/* ENCABEZADO */
+
+.registro-page .auth-header {
+    position: relative;
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,.7);
+}
+
+.registro-page .back-home {
+    color: #6335a5;
+    transition: .3s;
+}
+
+.registro-page .back-home:hover {
+    color: #16a34a;
+    transform: translateX(-4px);
+}
+
+/* DISTRIBUCIÓN */
+
+.registro-page .auth-main {
+    position: relative;
+    background: transparent;
+}
+
+/* COLUMNA IZQUIERDA */
+
+.registro-page .auth-info {
+    background: transparent;
+}
+
+.registro-page .auth-info h1 {
+    font-size: clamp(42px, 4.5vw, 72px);
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    line-height: 1.1;
+}
+
+.registro-page .auth-info h1 span {
+    background: linear-gradient(
+        90deg,
+        #12aa7a,
+        #8b4ae9,
+        #26bea1
+    );
+    background-size: 250% 250%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: registroGradient 8s ease infinite;
+}
+
+.registro-page .auth-tag {
+    background: rgba(255,255,255,.7);
+    border: 1px solid #e3d8ff;
+    box-shadow: 0 5px 20px rgba(99,53,165,.07);
+}
+
+.registro-page .benefit-icon {
+    background: rgba(255,255,255,.8);
+    backdrop-filter: blur(10px);
+    color: #7440ce;
+    border: 1px solid rgba(255,255,255,.9);
+}
+
+/* COLUMNA DERECHA */
+
+.registro-page .auth-form-section {
+    background: transparent;
+}
+
+/* TARJETA DE CRISTAL */
+
+.registro-page .auth-card {
+    position: relative;
+    overflow: hidden;
+
+    max-width: 490px;
+    padding: 40px;
+
+    background: rgba(255,255,255,.80);
+    border: 1px solid rgba(255,255,255,.95);
+    border-radius: 28px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 75px rgba(83,54,147,.16),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.registro-page .auth-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        #20c68c,
+        #9ed8ff,
+        #8b4ae9
+    );
+}
+
+.registro-page .auth-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 35px 85px rgba(83,54,147,.21);
+}
+
+.registro-page .mini-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 17px;
+    background: linear-gradient(135deg,#16b985,#8b4ae9);
+    box-shadow: 0 10px 25px rgba(125,70,220,.25);
+}
+
+.registro-page .auth-card-header h2 {
+    font-size: 29px;
+    font-weight: 900;
+    color: #291e46;
+}
+
+/* CAMPOS */
+
+.registro-page .form-group label {
+    color: #35274d;
+    font-weight: 800;
+}
+
+.registro-page .form-group input {
+    height: 53px;
+    border: 1.5px solid #e4ddec;
+    border-radius: 13px;
+    background: rgba(255,255,255,.8);
+    transition: .25s;
+}
+
+.registro-page .form-group input:focus {
+    border-color: #9863ee;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(142,91,232,.1);
+}
+
+.registro-page .checkbox-container input {
+    accent-color: #8245df;
+}
+
+/* BOTÓN PRINCIPAL */
+
+.registro-page .auth-submit {
+    min-height: 55px;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        115deg,
+        #7540dd,
+        #9959f4,
+        #13b88c
+    );
+
+    background-size: 200% 200%;
+    box-shadow: 0 12px 27px rgba(119,62,218,.26);
+
+    font-size: 15px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.registro-page .auth-submit:hover {
+    transform: translateY(-4px);
+    background-position: 100% 50%;
+    box-shadow: 0 17px 35px rgba(119,62,218,.35);
+}
+
+/* DETALLES INFERIORES */
+
+.registro-page .auth-security {
+    background: rgba(237,255,245,.65);
+    border: 1px solid rgba(170,230,200,.5);
+    color: #487361;
+}
+
+.registro-page .professional-warning {
+    color: #716a83;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .registro-page .auth-main {
+        grid-template-columns: 1fr;
+    }
+
+    .registro-page .auth-info {
+        padding: 55px 8%;
+    }
+
+    .registro-page .auth-form-section {
+        padding: 40px 6%;
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 550px) {
+    .registro-page .auth-info h1 {
+        font-size: 40px;
+    }
+
+    .registro-page .auth-card {
+        padding: 28px 22px;
+    }
+}
+
+/* MOVIMIENTO REDUCIDO */
+
+@media (prefers-reduced-motion: reduce) {
+    .registro-background,
+    .registro-orb,
+    .registro-bubble,
+    .registro-page .auth-info h1 span {
+        animation: none !important;
+    }
+}
+
+
+/* ==========================================
+   RENACER DIGITAL - IDENTIDAD UNIFICADA
+========================================== */
+
+/* LOGO Y ENCABEZADO */
+
+.registro-page .auth-header {
+    background: rgba(255,255,255,.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.55);
+}
+
+/* BOTÓN VOLVER - ESTILO BURBUJA */
+
+.registro-page .back-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 13px 22px;
+
+    color: #563b88 !important;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    background: rgba(255,255,255,.28);
+
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 50px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 8px 25px rgba(116,83,190,.10),
+        inset 0 2px 8px rgba(255,255,255,.65);
+
+    transition: all .35s ease;
+}
+
+.registro-page .back-home:hover {
+    color: white !important;
+
+    background: linear-gradient(
+        120deg,
+        #13B98B,
+        #8044E8
+    );
+
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow: 0 12px 30px rgba(117,64,221,.25);
+}
+
+/* BOTÓN DE REGISTRO */
+
+.registro-page .auth-submit {
+    width: 100%;
+    min-height: 55px;
+
+    color: white !important;
+
+    background: linear-gradient(
+        115deg,
+        #13B98B,
+        #5689CE,
+        #8044E8
+    ) !important;
+
+    background-size: 200% 200% !important;
+
+    border: none;
+    border-radius: 15px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(117,64,221,.20);
+
+    transition: all .35s ease;
+}
+
+.registro-page .auth-submit:hover {
+    background-position: 100% 50% !important;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 15px 30px rgba(117,64,221,.32);
+}
+
+.registro-page .auth-submit:active {
+    transform: scale(.97);
+}
+
+/* ICONO DE LA TARJETA */
+
+.registro-page .mini-logo {
+    background: linear-gradient(
+        135deg,
+        #13B98B,
+        #8044E8
+    );
+
+    box-shadow: 0 10px 25px rgba(125,70,220,.22);
+}
+
+/* CAMPOS */
+
+.registro-page .form-group input:focus {
+    border-color: #8044E8;
+    box-shadow: 0 0 0 4px rgba(128,68,232,.12);
+}
+
+/* CASILLAS */
+
+.registro-page .checkbox-container input {
+    accent-color: #8044E8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 550px) {
+    .registro-page .back-home {
+        padding: 11px 16px;
+        font-size: 12px;
+    }
+}
+
+/* MOVIMIENTO REDUCIDO */
+
+@media (prefers-reduced-motion: reduce) {
+    .registro-page .back-home,
+    .registro-page .auth-submit {
+        transition: none;
+    }
+}

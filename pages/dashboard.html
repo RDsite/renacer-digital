@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Panel personal de RDCA Renacer Digital">
+
+    <title>Mi espacio | RDCA</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body class="dashboard-page">
+
+    <!-- FONDO ANIMADO -->
+
+    <div class="dashboard-background" aria-hidden="true">
+
+        <div class="dashboard-orb orb-green"></div>
+        <div class="dashboard-orb orb-purple"></div>
+        <div class="dashboard-orb orb-blue"></div>
+
+        <div id="dashboardBubbles"></div>
+
+    </div>
+
+    <div class="dashboard-layout">
+
+        <!-- MENU LATERAL -->
+
+        <aside class="dashboard-sidebar">
+
+            <a href="../index.html" class="dashboard-brand">
+
+                <div class="dashboard-brand-icon">R</div>
+
+                <div>
+                    <strong>RDCA</strong>
+                    <span>Renacer Digital</span>
+                </div>
+
+            </a>
+
+            <div class="sidebar-section-label">
+                MI ESPACIO
+            </div>
+
+            <nav class="dashboard-nav">
+
+                <a href="#inicio"
+                   class="dashboard-nav-link active">
+                    <span>⌂</span>
+                    Mi panel
+                </a>
+
+                <a href="#progreso"
+                   class="dashboard-nav-link">
+                    <span>◉</span>
+                    Mi progreso
+                </a>
+
+                <a href="#emociones"
+                   class="dashboard-nav-link">
+                    <span>♡</span>
+                    Mis emociones
+                </a>
+
+                <a href="#metas"
+                   class="dashboard-nav-link">
+                    <span>✓</span>
+                    Mis metas
+                </a>
+
+                <a href="#recaidas"
+                   class="dashboard-nav-link">
+                    <span>✧</span>
+                    Registro personal
+                </a>
+
+                <a href="asistente.html"
+                   class="dashboard-nav-link">
+                    <span>✦</span>
+                    Asistente RDCA IA
+                </a>
+
+                <a href="premium.html"
+                   class="dashboard-nav-link premium-link">
+                    <span>★</span>
+                    RDCA Premium
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-user">
+
+                    <div class="sidebar-avatar">♡</div>
+
+                    <div>
+                        <strong id="nombreUsuario">
+                            Cargando...
+                        </strong>
+
+                        <small id="correoUsuario">
+                            Verificando sesión...
+                        </small>
+                    </div>
+
+                </div>
+
+                <button
+                    id="cerrarSesion"
+                    type="button"
+                    class="sidebar-logout">
+                    ↪ Cerrar sesión
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <main class="dashboard-main" id="inicio">
+
+            <!-- ENCABEZADO -->
+
+            <header class="dashboard-topbar">
+
+                <div>
+
+                    <span class="dashboard-eyebrow">
+                        TU ESPACIO PERSONAL
+                    </span>
+
+                    <h1 id="saludoUsuario">
+                        Verificando sesión...
+                    </h1>
+
+                    <p>
+                        Cada pequeño paso cuenta.
+                        Continúa avanzando a tu propio ritmo.
+                    </p>
+
+                </div>
+
+                <div class="dashboard-top-actions">
+
+                    <span class="dashboard-plan">
+                        ✦ Plan
+                        <strong id="planUsuario">
+                            Gratis
+                        </strong>
+                    </span>
+
+                    <a href="../index.html"
+                       class="dashboard-home-link">
+                        Ver inicio ↗
+                    </a>
+
+                </div>
+
+            </header>
+
+            <!-- BIENVENIDA -->
+
+            <section class="dashboard-welcome">
+
+                <div class="welcome-text">
+
+                    <span class="welcome-badge">
+                        ✦ TU RENACER COMIENZA AQUÍ
+                    </span>
+
+                    <h2>
+                        Un día a la vez,
+                        <span>un paso más cerca.</span>
+                    </h2>
+
+                    <p>
+                        Este es tu espacio para registrar
+                        avances, reconocer emociones y
+                        trabajar en tus objetivos personales.
+                    </p>
+
+                    <a href="#emociones"
+                       class="dashboard-primary-btn">
+                        Registrar cómo me siento →
+                    </a>
+
+                </div>
+
+                <div class="welcome-decoration"
+                     aria-hidden="true">
+
+                    <div class="welcome-circle">♡</div>
+
+                    <span class="floating-star star-one">✦</span>
+                    <span class="floating-star star-two">✧</span>
+
+                </div>
+
+            </section>
+
+            <!-- ESTADISTICAS -->
+
+            <section class="dashboard-stats" id="progreso">
+
+                <article class="dashboard-stat-card">
+
+                    <div class="stat-icon green">◷</div>
+
+                    <span class="stat-label">
+                        Días de progreso
+                    </span>
+
+                    <strong id="diasProgreso">—</strong>
+
+                    <small>Desde el inicio de tu proceso</small>
+
+                </article>
+
+                <article class="dashboard-stat-card">
+
+                    <div class="stat-icon purple">✓</div>
+
+                    <span class="stat-label">
+                        Metas completadas
+                    </span>
+
+                    <strong id="metasCumplidas">—</strong>
+
+                    <small>Objetivos alcanzados</small>
+
+                </article>
+
+                <article class="dashboard-stat-card">
+
+                    <div class="stat-icon blue">◎</div>
+
+                    <span class="stat-label">
+                        Total de metas
+                    </span>
+
+                    <strong id="totalMetas">—</strong>
+
+                    <small>Objetivos personales</small>
+
+                </article>
+
+                <article class="dashboard-stat-card">
+
+                    <div class="stat-icon pink">♡</div>
+
+                    <span class="stat-label">
+                        Último estado emocional
+                    </span>
+
+                    <strong id="estadoAnimo">—</strong>
+
+                    <small>Escala del 1 al 10</small>
+
+                </article>
+
+            </section>
+
+            <!-- PROCESO PERSONAL -->
+
+            <section class="dashboard-panel rdca-form-panel"
+                     id="miProceso">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="panel-kicker">
+                            MI RECUPERACIÓN
+                        </span>
+
+                        <h2>Mi proceso personal</h2>
+                    </div>
+
+                    <div class="panel-icon">◉</div>
+
+                </div>
+
+                <p class="panel-description">
+                    Define el objetivo que deseas trabajar.
+                    Tu progreso representa el tiempo dedicado
+                    a tu proceso, no una medida de tu valor personal.
+                </p>
+
+                <form id="formProceso" class="rdca-form">
+
+                    <div class="rdca-field">
+
+                        <label for="objetivoProceso">
+                            Mi objetivo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="objetivoProceso"
+                            maxlength="200"
+                            placeholder="Ej. Construir hábitos más saludables"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="rdca-field">
+
+                        <label for="fechaInicioProceso">
+                            Fecha de inicio
+                        </label>
+
+                        <input
+                            type="date"
+                            id="fechaInicioProceso"
+                            required
+                        >
+
+                    </div>
+
+                    <button type="submit" class="rdca-action-btn">
+                        Guardar mi proceso →
+                    </button>
+
+                    <p id="mensajeProceso"
+                       class="form-message"
+                       role="status"
+                       aria-live="polite"></p>
+
+                </form>
+
+            </section>
+
+            <!-- EMOCIONES Y METAS -->
+
+            <div class="dashboard-content-grid">
+
+                <!-- EMOCIONES -->
+
+                <section class="dashboard-panel" id="emociones">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <span class="panel-kicker">
+                                BIENESTAR EMOCIONAL
+                            </span>
+
+                            <h2>¿Cómo te sientes hoy?</h2>
+                        </div>
+
+                        <div class="panel-icon">♡</div>
+
+                    </div>
+
+                    <p class="panel-description">
+                        Registrar tus emociones puede ayudarte
+                        a reconocer patrones y desencadenantes.
+                    </p>
+
+                    <form id="formEmocion" class="rdca-form">
+
+                        <div class="rdca-field">
+
+                            <label for="estadoAnimoInput">
+                                Estado de ánimo
+                            </label>
+
+                            <select id="estadoAnimoInput" required>
+                                <option value="">Seleccionar</option>
+                                <option value="1">1 - Muy difícil</option>
+                                <option value="3">3 - Bajo</option>
+                                <option value="5">5 - Neutral</option>
+                                <option value="7">7 - Bien</option>
+                                <option value="10">10 - Muy bien</option>
+                            </select>
+
+                        </div>
+
+                        <div class="rdca-field">
+
+                            <label for="ansiedadInput">
+                                Nivel de ansiedad
+                            </label>
+
+                            <select id="ansiedadInput" required>
+                                <option value="">Seleccionar</option>
+                                <option value="1">1 - Muy bajo</option>
+                                <option value="3">3 - Bajo</option>
+                                <option value="5">5 - Moderado</option>
+                                <option value="7">7 - Alto</option>
+                                <option value="10">10 - Muy alto</option>
+                            </select>
+
+                        </div>
+
+                        <div class="rdca-field">
+
+                            <label for="impulsoInput">
+                                Intensidad del impulso
+                            </label>
+
+                            <select id="impulsoInput" required>
+                                <option value="">Seleccionar</option>
+                                <option value="1">1 - Muy bajo</option>
+                                <option value="3">3 - Bajo</option>
+                                <option value="5">5 - Moderado</option>
+                                <option value="7">7 - Alto</option>
+                                <option value="10">10 - Muy alto</option>
+                            </select>
+
+                        </div>
+
+                        <div class="rdca-field">
+
+                            <label for="comentarioEmocion">
+                                ¿Quieres escribir algo?
+                            </label>
+
+                            <textarea
+                                id="comentarioEmocion"
+                                rows="3"
+                                maxlength="1000"
+                                placeholder="Este espacio es personal y opcional."
+                            ></textarea>
+
+                        </div>
+
+                        <button type="submit" class="rdca-action-btn">
+                            Guardar mi estado emocional →
+                        </button>
+
+                        <p id="mensajeEmocion"
+                           class="form-message"
+                           role="status"
+                           aria-live="polite"></p>
+
+                    </form>
+
+                </section>
+
+                <!-- METAS -->
+
+                <section class="dashboard-panel" id="metas">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <span class="panel-kicker">
+                                OBJETIVOS PERSONALES
+                            </span>
+
+                            <h2>Mis metas</h2>
+                        </div>
+
+                        <div class="panel-icon">✓</div>
+
+                    </div>
+
+                    <p class="panel-description">
+                        Define objetivos alcanzables
+                        y registra tus avances.
+                    </p>
+
+                    <form id="formMeta" class="rdca-form">
+
+                        <div class="rdca-field">
+
+                            <label for="descripcionMeta">
+                                Nueva meta
+                            </label>
+
+                            <input
+                                type="text"
+                                id="descripcionMeta"
+                                maxlength="200"
+                                placeholder="Ej. Practicar respiración consciente"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="rdca-field">
+
+                            <label for="fechaObjetivoMeta">
+                                Fecha objetivo (opcional)
+                            </label>
+
+                            <input
+                                type="date"
+                                id="fechaObjetivoMeta"
+                            >
+
+                        </div>
+
+                        <button type="submit" class="rdca-action-btn">
+                            Agregar meta +
+                        </button>
+
+                        <p id="mensajeMeta"
+                           class="form-message"
+                           role="status"
+                           aria-live="polite"></p>
+
+                    </form>
+
+                    <div class="goal-summary">
+                        <span>Metas registradas</span>
+                        <strong id="totalMetasResumen">—</strong>
+                    </div>
+
+                    <div id="listaMetas" class="rdca-goals-list">
+                        <p>Cargando metas...</p>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- REGISTRO DE RECAIDAS -->
+
+            <section class="dashboard-panel rdca-form-panel"
+                     id="recaidas">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="panel-kicker">
+                            REFLEXIÓN PERSONAL
+                        </span>
+
+                        <h2>Registro de dificultades y recaídas</h2>
+                    </div>
+
+                    <div class="panel-icon">✧</div>
+
+                </div>
+
+                <p class="panel-description">
+                    Si has experimentado una recaída o un momento
+                    difícil, puedes registrarlo para identificar
+                    situaciones que necesitas trabajar.
+                    Una recaída no elimina tus avances anteriores.
+                </p>
+
+                <form id="formRecaida" class="rdca-form">
+
+                    <div class="rdca-field">
+
+                        <label for="descripcionRecaida">
+                            ¿Qué ocurrió?
+                        </label>
+
+                        <textarea
+                            id="descripcionRecaida"
+                            rows="3"
+                            maxlength="1000"
+                            placeholder="Describe brevemente lo ocurrido."
+                            required
+                        ></textarea>
+
+                    </div>
+
+                    <div class="rdca-field">
+
+                        <label for="desencadenanteRecaida">
+                            Posible desencadenante (opcional)
+                        </label>
+
+                        <input
+                            type="text"
+                            id="desencadenanteRecaida"
+                            maxlength="200"
+                            placeholder="Ej. Estrés, tristeza, una situación difícil"
+                        >
+
+                    </div>
+
+                    <button type="submit" class="rdca-action-btn">
+                        Guardar registro →
+                    </button>
+
+                    <p id="mensajeRecaida"
+                       class="form-message"
+                       role="status"
+                       aria-live="polite"></p>
+
+                </form>
+
+                <p class="dashboard-hint">
+                    Registros guardados:
+                    <strong id="totalRecaidas">—</strong>
+                </p>
+
+            </section>
+
+            <!-- ASISTENTE IA -->
+
+            <section class="dashboard-ai-banner">
+
+                <div class="ai-banner-icon">✦</div>
+
+                <div class="ai-banner-content">
+
+                    <span>ACOMPAÑAMIENTO DIGITAL</span>
+
+                    <h2>
+                        No tienes que enfrentar cada
+                        momento en silencio.
+                    </h2>
+
+                    <p>
+                        RDCA IA está diseñado para ofrecer
+                        orientación y acompañamiento emocional.
+                    </p>
+
+                </div>
+
+                <a href="asistente.html"
+                   class="dashboard-ai-button">
+                    Hablar con RDCA IA →
+                </a>
+
+            </section>
+
+            <!-- AVISO -->
+
+            <p class="rdca-disclaimer">
+                RDCA es una herramienta de acompañamiento digital.
+                No sustituye atención médica, psicológica
+                ni servicios de emergencia.
+            </p>
+
+            <!-- FOOTER -->
+
+            <footer class="dashboard-footer">
+
+                <span>© 2026 RDCA — Renacer Digital</span>
+
+                <span>
+                    Tu proceso. Tu ritmo. Tu renacer.
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- SUPABASE Y FUNCIONES -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/dashboard.js?v=6"></script>
+    <script src="../js/dashboard-particles.js?v=6"></script>
+
+</body>
+</html>

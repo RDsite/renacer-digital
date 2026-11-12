@@ -1,0 +1,689 @@
+
+/* ==========================================
+   RDCA - RENACER DIGITAL
+   DISEÑO PREMIUM DE INICIO DE SESIÓN
+========================================== */
+
+:root {
+    --verde: #13b98b;
+    --violeta: #8044e8;
+    --violeta-oscuro: #38205f;
+    --texto: #291e46;
+    --texto-suave: #716a83;
+}
+
+/* PÁGINA PRINCIPAL */
+
+.login-page {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background: #f0eaff;
+}
+
+/* ==========================================
+   FONDO ANIMADO
+========================================== */
+
+.login-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+
+    background: linear-gradient(
+        125deg,
+        #d7ffed,
+        #eee2ff,
+        #dceeff,
+        #ffe5f2,
+        #d8fff1
+    );
+
+    background-size: 400% 400%;
+    animation: loginGradient 20s ease-in-out infinite;
+}
+
+@keyframes loginGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ESFERAS DE LUZ DIFUMINADAS */
+
+
+/* ESFERAS DE LUZ DIFUMINADAS */
+
+.login-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.6;
+    animation: orbFloat 12s ease-in-out infinite alternate;
+}
+
+.orb-one {
+    width: 430px;
+    height: 430px;
+    top: -130px;
+    left: -100px;
+    background: #7beac0;
+}
+
+.orb-two {
+    width: 520px;
+    height: 520px;
+    top: 20%;
+    right: -160px;
+    background: #b69cff;
+    animation-delay: -4s;
+}
+
+.orb-three {
+    width: 320px;
+    height: 320px;
+    bottom: -130px;
+    left: 40%;
+    background: #a8dfff;
+    animation-delay: -7s;
+}
+
+@keyframes orbFloat {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(65px, -50px) scale(1.2);
+    }
+}
+
+/* BURBUJAS */
+
+.login-bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.login-bubble {
+    position: absolute;
+    bottom: -120px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.7);
+    background: radial-gradient(
+        circle at 30% 25%,
+        rgba(255,255,255,.85),
+        rgba(143,105,239,.10) 60%,
+        transparent
+    );
+    animation: loginBubbleUp linear infinite;
+}
+
+@keyframes loginBubbleUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: .65;
+    }
+    85% {
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+/* ENCABEZADO */
+
+.login-header {
+    min-height: 86px;
+    padding: 16px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.login-brand-icon {
+    width: 49px;
+    height: 49px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: linear-gradient(135deg,#16b985,#8749ed);
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.login-brand strong {
+    display: block;
+    color: #45277f;
+    font-size: 23px;
+}
+
+.login-brand span {
+    display: block;
+    color: #716b81;
+    font-size: 12px;
+}
+
+.login-back {
+    color: #604c85;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* DISTRIBUCIÓN */
+
+.login-layout {
+    width: min(1280px, 90%);
+    min-height: calc(100vh - 86px);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+    padding: 35px 0 65px;
+}
+
+/* PRESENTACIÓN */
+
+.login-tag {
+    display: inline-block;
+    padding: 11px 17px;
+    background: rgba(255,255,255,.65);
+    border: 1px solid #e4d4ff;
+    border-radius: 30px;
+    color: #7033cb;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.login-welcome h1 {
+    margin: 28px 0;
+    font-size: clamp(50px,5.7vw,90px);
+    font-weight: 900;
+    line-height: 1.07;
+    letter-spacing: -3px;
+}
+
+.login-welcome h1 span {
+    background: linear-gradient(
+        90deg,#10a978,#8b4ae9,#27b9a2
+    );
+    background-size: 250% 250%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: loginGradient 8s ease infinite;
+}
+
+.login-welcome > p {
+    max-width: 520px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #716a83;
+}
+
+.welcome-features {
+    margin-top: 35px;
+    display: grid;
+    gap: 18px;
+}
+
+.welcome-features > div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-weight: 700;
+}
+
+.welcome-feature-icon {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,.75);
+    color: #7843d3;
+}
+
+.login-quote {
+    display: flex;
+    gap: 12px;
+    margin-top: 42px;
+    padding: 20px 24px;
+    background: rgba(255,255,255,.45);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.login-quote > span {
+    font-size: 50px;
+    color: #9c75ea;
+}
+
+.login-quote p {
+    color: #655b7b;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+/* TARJETA LOGIN */
+
+.login-glass-card {
+    max-width: 490px;
+    margin: auto;
+    padding: 42px;
+    background: rgba(255,255,255,.82);
+    border: 1px solid white;
+    border-radius: 30px;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 30px 75px rgba(83,54,147,.16);
+}
+
+.login-card-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 17px;
+    color: white;
+    font-size: 26px;
+    background: linear-gradient(135deg,#16b985,#8b4ae9);
+}
+
+.login-card-heading {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-card-heading h2 {
+    font-size: 29px;
+    margin-bottom: 9px;
+}
+
+.login-card-heading p {
+    color: #827b91;
+    font-size: 14px;
+}
+
+/* CAMPOS */
+
+.login-field {
+    margin-bottom: 23px;
+}
+
+.login-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.login-label-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.login-label-row a {
+    color: #7541cf;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.login-input-wrap {
+    position: relative;
+}
+
+.login-input-wrap input {
+    width: 100%;
+    height: 55px;
+    padding: 0 48px;
+    border: 1.5px solid #e4ddec;
+    border-radius: 14px;
+    background: rgba(255,255,255,.8);
+    font-size: 14px;
+    outline: none;
+}
+
+.login-input-wrap input:focus {
+    border-color: #9863ee;
+    box-shadow: 0 0 0 4px rgba(142,91,232,.1);
+}
+
+.input-symbol {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9367d9;
+    font-size: 19px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.remember-row {
+    display: flex;
+    gap: 9px;
+    margin-bottom: 23px;
+    color: #6c647e;
+    font-size: 13px;
+}
+
+/* BOTÓN */
+
+.login-submit {
+    width: 100%;
+    min-height: 56px;
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    background: linear-gradient(
+        115deg,#7540dd,#9959f4,#13b88c
+    );
+    background-size: 200% 200%;
+    box-shadow: 0 12px 27px rgba(119,62,218,.26);
+    transition: .3s;
+}
+
+.login-submit:hover {
+    transform: translateY(-4px);
+    background-position: 100% 50%;
+    box-shadow: 0 17px 35px rgba(119,62,218,.35);
+}
+
+.login-separator {
+    text-align: center;
+    margin: 28px 0 20px;
+    color: #92899f;
+    font-size: 12px;
+}
+
+.login-create {
+    display: block;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: 1.5px solid #b69aec;
+    border-radius: 14px;
+    background: rgba(255,255,255,.6);
+    color: #7440ce;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.login-create:hover {
+    background: #f2eaff;
+    transform: translateY(-3px);
+}
+
+.login-privacy,
+.login-disclaimer {
+    margin-top: 20px;
+    text-align: center;
+    color: #827b91;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.login-message {
+    display: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.login-message.error {
+    display: block;
+    background: #fff0f0;
+    color: #b42318;
+}
+
+.login-message.success {
+    display: block;
+    background: #ecfdf3;
+    color: #137a48;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+    .login-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .login-welcome {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-layout {
+        width: 92%;
+        padding: 30px 0;
+    }
+
+    .login-welcome h1 {
+        font-size: 48px;
+    }
+
+    .login-glass-card {
+        padding: 28px 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login-background,
+    .login-orb,
+    .login-bubble,
+    .login-welcome h1 span {
+        animation: none;
+    }
+}
+
+
+/* =====================================
+   LOGO RENACER DIGITAL - LOGIN
+===================================== */
+
+.login-renacer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+}
+
+.login-renacer-brand:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+
+/* ICONO */
+
+.login-renacer-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+
+/* TEXTO */
+
+.login-renacer-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 25px;
+    letter-spacing: -0.7px;
+
+    color: #30204f;
+}
+
+.login-renacer-text strong {
+    font-weight: 800;
+}
+
+.login-renacer-text span {
+    font-weight: 400;
+    color: #7453c9;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+
+    .login-renacer-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .login-renacer-text {
+        font-size: 21px;
+    }
+
+}
+
+
+/* ==========================================
+   IDENTIDAD VISUAL GLOBAL - LOGIN
+========================================== */
+
+.login-submit,
+.login-create {
+
+    background: linear-gradient(
+        115deg,
+        #13B98B,
+        #5689CE,
+        #8044E8
+    ) !important;
+
+    background-size: 200% 200% !important;
+
+    color: white !important;
+
+    border: none !important;
+
+    transition: all .3s ease;
+}
+
+.login-submit:hover,
+.login-create:hover {
+
+    background-position: 100% 50% !important;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 28px rgba(117,64,221,.30);
+}
+
+
+/* ==========================================
+   BOTÓN VOLVER AL INICIO - ESTILO BURBUJA
+========================================== */
+
+.login-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 13px 22px;
+
+    color: #563b88 !important;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    background: rgba(255, 255, 255, 0.28);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 8px 25px rgba(116, 83, 190, 0.10),
+        inset 0 2px 8px rgba(255, 255, 255, 0.65);
+
+    transition: all 0.35s ease;
+}
+
+/* BURBUJA AL PASAR EL CURSOR */
+
+.login-back:hover {
+    color: white !important;
+
+    background: linear-gradient(
+        120deg,
+        rgba(19, 185, 139, 0.90),
+        rgba(128, 68, 232, 0.90)
+    );
+
+    border-color: rgba(255, 255, 255, 0.8);
+
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 12px 30px rgba(117, 64, 221, 0.22),
+        inset 0 2px 10px rgba(255, 255, 255, 0.35);
+}
+
+/* AL PRESIONAR */
+
+.login-back:active {
+    transform: scale(0.96);
+}
+
+/* MÓVILES */
+
+@media (max-width: 600px) {
+    .login-back {
+        padding: 11px 16px;
+        font-size: 12px;
+    }
+}

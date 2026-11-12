@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Supabase - RDCA</title>
+</head>
+<body style="font-family:Arial;padding:40px;">
+
+    <h2>Prueba de conexión RDCA</h2>
+
+    <button id="probar">
+        Probar conexión
+    </button>
+
+    <p id="resultado"></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+
+    <script>
+        document.getElementById("probar")
+            .addEventListener("click", async () => {
+
+                const resultado =
+                    document.getElementById("resultado");
+
+                resultado.textContent = "Comprobando...";
+
+                if (!window.rdcaSupabase) {
+                    resultado.textContent =
+                        "ERROR: No se creó el cliente Supabase.";
+                    return;
+                }
+
+                try {
+                    const { data, error } =
+                        await window.rdcaSupabase.auth.getSession();
+
+                    if (error) throw error;
+
+                    resultado.textContent =
+                        "Cliente Supabase funcionando. " +
+                        (data.session
+                            ? "Hay una sesión guardada."
+                            : "No hay sesión iniciada.");
+
+                } catch (error) {
+                    resultado.textContent =
+                        "ERROR: " + error.message;
+                }
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,841 @@
+
+/* ==========================================
+   RDCA - RENACER DIGITAL
+   PREMIUM CSS - PARTE 1 DE 3
+========================================== */
+
+/* 01. CONFIGURACIÓN GENERAL */
+
+.premium-page,
+.premium-page * {
+    box-sizing: border-box;
+}
+
+.premium-page {
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+    background: #f2edff;
+    color: #2b2047;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 02. FONDO ANIMADO */
+
+.premium-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+
+    background: linear-gradient(
+        125deg,
+        #dcffed,
+        #e9ddff,
+        #dcefff,
+        #ffe6f3,
+        #d8fff1
+    );
+
+    background-size: 400% 400%;
+    animation: premiumGradient 20s ease-in-out infinite;
+}
+
+@keyframes premiumGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 100%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 50% 0%;
+    }
+}
+
+/* 03. ESFERAS DE LUZ */
+
+.premium-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: .5;
+    animation: premiumFloat 12s ease-in-out infinite alternate;
+}
+
+.orb-one {
+    width: 450px;
+    height: 450px;
+    top: -150px;
+    left: -100px;
+    background: #7beac0;
+}
+
+.orb-two {
+    width: 500px;
+    height: 500px;
+    top: 20%;
+    right: -160px;
+    background: #b69cff;
+    animation-delay: -4s;
+}
+
+.orb-three {
+    width: 350px;
+    height: 350px;
+    bottom: -130px;
+    left: 35%;
+    background: #a8dfff;
+    animation-delay: -7s;
+}
+
+@keyframes premiumFloat {
+    from {
+        transform: translate(0,0) scale(1);
+    }
+
+    to {
+        transform: translate(60px,-45px) scale(1.2);
+    }
+}
+
+/* 04. BURBUJAS FLOTANTES */
+
+#premiumBubbles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.premium-bubble {
+    position: absolute;
+    bottom: -130px;
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.8);
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        rgba(255,255,255,.9),
+        rgba(143,105,239,.16) 60%,
+        transparent
+    );
+
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.6),
+        0 0 20px rgba(125,85,230,.10);
+
+    animation: premiumBubbleUp linear infinite;
+    will-change: transform;
+}
+
+@keyframes premiumBubbleUp {
+    0% {
+        transform: translate3d(0,0,0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .7;
+    }
+
+    85% {
+        opacity: .6;
+    }
+
+    100% {
+        transform: translate3d(
+            var(--bubble-drift,0px),
+            -125vh,
+            0
+        );
+        opacity: 0;
+    }
+}
+
+/* 05. ENCABEZADO */
+
+.premium-header {
+    min-height: 85px;
+    padding: 15px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: rgba(255,255,255,.70);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.8);
+}
+
+/* LOGO */
+
+.premium-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.premium-brand-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #16b985,
+        #8247e5
+    );
+
+    color: white;
+    font-size: 23px;
+    font-weight: 900;
+
+    box-shadow: 0 8px 20px rgba(115,70,200,.2);
+}
+
+.premium-brand strong {
+    display: block;
+    color: #432778;
+    font-size: 21px;
+}
+
+.premium-brand small {
+    display: block;
+    color: #81788f;
+    font-size: 11px;
+}
+
+/* NAVEGACIÓN */
+
+.premium-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.premium-nav a {
+    color: #655a78;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.premium-nav a:hover {
+    color: #8247e5;
+}
+
+.premium-login {
+    padding: 12px 18px;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        110deg,
+        #7540dd,
+        #9658ef
+    );
+
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+
+    box-shadow: 0 8px 20px rgba(119,62,218,.15);
+    transition: .25s;
+}
+
+.premium-login:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(119,62,218,.25);
+}
+
+/* 06. PRESENTACIÓN PRINCIPAL */
+
+.premium-hero {
+    max-width: 900px;
+    margin: auto;
+    padding: 85px 20px 55px;
+    text-align: center;
+}
+
+.premium-tag {
+    display: inline-block;
+    padding: 10px 18px;
+
+    border-radius: 25px;
+    border: 1px solid #e4d4ff;
+
+    background: rgba(255,255,255,.75);
+    color: #7540d3;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.premium-hero h1 {
+    margin: 25px 0;
+
+    font-size: clamp(40px,5vw,68px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -2px;
+
+    color: #2b2047;
+}
+
+.premium-hero h1 span {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #16b985,
+        #8247e5,
+        #2bc9a4
+    );
+
+    background-size: 250% 250%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: premiumGradient 8s ease infinite;
+}
+
+.premium-hero p {
+    max-width: 680px;
+    margin: auto;
+
+    color: #756b87;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* BENEFICIOS */
+
+.premium-highlights {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 28px;
+}
+
+.premium-highlights span {
+    padding: 10px 15px;
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.70);
+    border: 1px solid rgba(255,255,255,.9);
+
+    color: #16a77e;
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow: 0 5px 15px rgba(80,55,135,.05);
+}
+
+
+/* ==========================================
+   RDCA - PREMIUM CSS
+   PARTE 2 DE 3
+   TARJETAS Y PLANES
+========================================== */
+
+/* 07. CONTENEDOR DE PLANES */
+
+.premium-plans {
+    width: min(1250px, 92%);
+    margin: 0 auto 45px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 25px;
+}
+
+/* 08. TARJETAS PREMIUM */
+
+.premium-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    padding: 38px 30px;
+    border-radius: 26px;
+
+    background: rgba(255,255,255,.85);
+    border: 1px solid rgba(255,255,255,.95);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 18px 45px rgba(80,55,135,.10),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+.premium-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 55px rgba(80,55,135,.17),
+        inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+/* TARJETA DESTACADA */
+
+.premium-card.featured {
+    border: 2px solid #9b70ef;
+
+    box-shadow:
+        0 25px 55px rgba(119,62,218,.20),
+        0 0 30px rgba(139,74,233,.08);
+}
+
+.premium-card.featured:hover {
+    border-color: #16b985;
+
+    box-shadow:
+        0 30px 65px rgba(119,62,218,.25),
+        0 0 35px rgba(22,185,133,.12);
+}
+
+/* 09. ETIQUETA DESTACADA */
+
+.popular-badge {
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 10px 18px;
+    border-radius: 25px;
+
+    background: linear-gradient(
+        110deg,
+        #7540dd,
+        #16b985
+    );
+
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    white-space: nowrap;
+
+    box-shadow: 0 8px 20px rgba(119,62,218,.22);
+}
+
+/* 10. ICONOS DE LOS PLANES */
+
+.plan-icon {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 17px;
+    font-size: 29px;
+    margin-bottom: 22px;
+
+    transition: transform .3s ease;
+}
+
+.premium-card:hover .plan-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.free-icon {
+    background: #e2fff0;
+    color: #16a77e;
+}
+
+.premium-icon {
+    background: #eee3ff;
+    color: #8247e5;
+}
+
+.plus-icon {
+    background: #e2f4ff;
+    color: #368fd8;
+}
+
+/* 11. TÍTULOS Y DESCRIPCIONES */
+
+.plan-category {
+    color: #16a77e;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.premium-card h2 {
+    margin: 10px 0;
+    font-size: 27px;
+    font-weight: 900;
+    color: #332352;
+}
+
+.plan-description {
+    color: #81788f;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 65px;
+}
+
+/* 12. PRECIO DEL PLAN */
+
+.plan-price {
+    margin: 25px 0;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #eee8f4;
+}
+
+.plan-price strong {
+    display: block;
+    color: #392454;
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.plan-price span {
+    display: block;
+    margin-top: 7px;
+    color: #9a91a7;
+    font-size: 12px;
+}
+
+/* 13. CARACTERÍSTICAS DE LOS PLANES */
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.plan-features li {
+    color: #655a78;
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 3px;
+}
+
+/* 14. BOTONES DE LOS PLANES */
+
+.plan-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 53px;
+    margin-top: auto;
+    padding: 15px;
+
+    border: none;
+    border-radius: 13px;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background-position .3s ease;
+}
+
+/* BOTÓN GRATIS */
+
+.free-button {
+    background: #e2fff0;
+    color: #13956d;
+    border: 1px solid #b9efd4;
+}
+
+.free-button:hover {
+    background: #ccf9e3;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(22,185,133,.15);
+}
+
+/* BOTÓN PREMIUM */
+
+.premium-button {
+    background: linear-gradient(
+        115deg,
+        #7540dd,
+        #9959f4,
+        #13b88c
+    );
+
+    background-size: 200% 200%;
+    color: white;
+
+    box-shadow: 0 10px 25px rgba(119,62,218,.20);
+}
+
+.premium-button:hover {
+    transform: translateY(-4px);
+    background-position: 100% 50%;
+
+    box-shadow: 0 15px 30px rgba(119,62,218,.30);
+}
+
+/* BOTÓN PREMIUM PLUS */
+
+.plus-button {
+    background: linear-gradient(
+        115deg,
+        #298ed2,
+        #8247e5,
+        #16b985
+    );
+
+    background-size: 200% 200%;
+    color: white;
+
+    box-shadow: 0 10px 25px rgba(65,110,210,.20);
+}
+
+.plus-button:hover {
+    transform: translateY(-4px);
+    background-position: 100% 50%;
+
+    box-shadow: 0 15px 30px rgba(65,110,210,.30);
+}
+
+/* 15. ESTADO DE LOS BOTONES */
+
+.plan-button:focus-visible {
+    outline: 3px solid #16b985;
+    outline-offset: 4px;
+}
+
+.plan-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 16. MENSAJE DE LOS PLANES */
+
+.premium-message {
+    max-width: 700px;
+    min-height: 24px;
+    margin: 20px auto;
+    padding: 0 20px;
+
+    text-align: center;
+    color: #7040c8;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   RDCA PREMIUM - PARTE 3 DE 3
+   INFORMACIÓN, FOOTER Y RESPONSIVE
+========================================== */
+
+/* SECCIÓN INFORMATIVA */
+
+.premium-info {
+    max-width: 850px;
+    margin: 70px auto;
+    padding: 45px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.78);
+    border: 1px solid rgba(255,255,255,.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(80,55,135,.09);
+    text-align: center;
+}
+
+.premium-info-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    background: linear-gradient(135deg,#16b985,#8247e5);
+    color: white;
+    font-size: 35px;
+}
+
+.premium-info h2 {
+    color: #332352;
+    font-size: clamp(24px,3vw,34px);
+    line-height: 1.3;
+}
+
+.premium-info p {
+    max-width: 650px;
+    margin: 20px auto;
+    color: #81788f;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.premium-back-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 25px;
+    border-radius: 13px;
+    background: linear-gradient(115deg,#7540dd,#16b985);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.premium-back-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(119,62,218,.25);
+}
+
+/* PIE DE PÁGINA */
+
+.premium-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 30px 7%;
+    background: rgba(255,255,255,.65);
+    border-top: 1px solid rgba(255,255,255,.8);
+    color: #81788f;
+    font-size: 12px;
+}
+
+.premium-footer p {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* TABLETAS */
+
+@media (max-width: 1000px) {
+    .premium-plans {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .premium-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 500px;
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 700px) {
+    .premium-header {
+        flex-wrap: wrap;
+        padding: 18px 5%;
+    }
+
+    .premium-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .premium-hero {
+        padding: 55px 20px 40px;
+    }
+
+    .premium-hero h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .premium-hero p {
+        font-size: 14px;
+    }
+
+    .premium-plans {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .premium-card,
+    .premium-card:last-child {
+        grid-column: auto;
+        max-width: none;
+        padding: 35px 25px;
+    }
+
+    .premium-info {
+        margin: 50px 5%;
+        padding: 35px 22px;
+    }
+
+    .premium-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* MOVIMIENTO REDUCIDO */
+
+@media (prefers-reduced-motion: reduce) {
+    .premium-background,
+    .premium-orb,
+    .premium-bubble,
+    .premium-hero h1 span {
+        animation: none !important;
+    }
+
+    .premium-card,
+    .plan-button,
+    .premium-back-button {
+        transition: none;
+    }
+}
+
+

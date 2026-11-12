@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear cuenta | RDCA</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body class="auth-body registro-page">
+
+    <div class="registro-background" aria-hidden="true">
+        <div class="registro-orb registro-orb-one"></div>
+        <div class="registro-orb registro-orb-two"></div>
+        <div class="registro-orb registro-orb-three"></div>
+        <div id="registroBubbles"></div>
+    </div>
+
+    <header class="auth-header">
+
+        <a href="../index.html" class="auth-logo">
+
+            <div class="logo-icon">
+                R
+            </div>
+
+            <div>
+                <h2>RDCA</h2>
+                <span>Renacer Digital</span>
+            </div>
+
+        </a>
+
+        <a href="../index.html" class="back-home">
+            ← Volver al inicio
+        </a>
+
+    </header>
+
+
+    <main class="auth-main">
+
+        <!-- COLUMNA IZQUIERDA -->
+
+        <section class="auth-info">
+
+            <div class="auth-info-content">
+
+                <div class="auth-tag">
+                    ✦ TU PROCESO COMIENZA AQUÍ
+                </div>
+
+                <h1>
+                    Un nuevo comienzo<br>
+                    <span>empieza contigo.</span>
+                </h1>
+
+                <p class="auth-description">
+                    Crea tu cuenta en RDCA y comienza a registrar
+                    tu progreso, comprender tus emociones y construir
+                    nuevos hábitos a tu propio ritmo.
+                </p>
+
+
+                <div class="auth-benefits">
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Seguimiento personal</strong>
+                            <p>
+                                Registra tus avances y observa tu progreso.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ♡
+                        </div>
+
+                        <div>
+                            <strong>Bienestar emocional</strong>
+                            <p>
+                                Reconoce emociones y posibles desencadenantes.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✦
+                        </div>
+
+                        <div>
+                            <strong>RDCA IA</strong>
+                            <p>
+                                Encuentra acompañamiento cuando lo necesites.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COLUMNA DERECHA -->
+
+        <section class="auth-form-section">
+
+            <div class="auth-card">
+
+                <div class="auth-card-header">
+
+                    <div class="mini-logo">
+                        R
+                    </div>
+
+                    <h2>Crea tu cuenta</h2>
+
+                    <p>
+                        Da el primer paso hacia tu Renacer Digital.
+                    </p>
+
+                </div>
+
+
+                <form id="registroForm">
+
+                    <!-- NOMBRE -->
+
+                    <div class="form-group">
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="¿Cómo quieres que te llamemos?"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CORREO -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="nombre@correo.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Contraseña
+                        </label>
+
+                        <div class="password-field">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Mínimo 8 caracteres"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                data-target="password"
+                                aria-label="Mostrar contraseña"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRMAR CONTRASEÑA -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirmar contraseña
+                        </label>
+
+                        <div class="password-field">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Repite tu contraseña"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                data-target="confirmPassword"
+                                aria-label="Mostrar contraseña"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TÉRMINOS -->
+
+                    <label class="checkbox-container">
+
+                        <input
+                            type="checkbox"
+                            id="terminos"
+                            required
+                        >
+
+                        <span>
+                            Acepto los
+                            <a href="#">Términos de uso</a>
+                            y la
+                            <a href="#">Política de privacidad</a>.
+                        </span>
+
+                    </label>
+
+
+                    <!-- MENSAJES -->
+
+                    <div
+                        id="registroMensaje"
+                        class="form-message"
+                    ></div>
+
+
+                    <!-- BOTÓN -->
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Crear mi cuenta →
+                    </button>
+
+                </form>
+
+
+                <div class="auth-divider">
+
+                    <span>o</span>
+
+                </div>
+
+
+                <p class="auth-login-text">
+
+                    ¿Ya tienes una cuenta?
+
+                    <a href="login.html">
+                        Iniciar sesión
+                    </a>
+
+                </p>
+
+
+                <div class="auth-security">
+
+                    🔒 Tu información es privada y está protegida.
+
+                </div>
+
+            </div>
+
+
+            <p class="professional-warning">
+
+                RDCA es una herramienta digital de acompañamiento.
+                No sustituye atención médica o psicológica profesional.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/registro.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar sesión | Renacer Digital</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+
+</head>
+
+<body class="login-page">
+
+    <!-- FONDO ANIMADO -->
+
+    <div class="login-background" aria-hidden="true">
+
+        <div class="login-orb orb-one"></div>
+        <div class="login-orb orb-two"></div>
+        <div class="login-orb orb-three"></div>
+
+        <div class="login-bubbles" id="loginBubbles"></div>
+
+    </div>
+
+
+    <!-- ENCABEZADO -->
+
+    <header class="login-header">
+
+        <!-- LOGO RENACER DIGITAL -->
+
+        <a href="../index.html" class="login-renacer-brand">
+
+            <svg class="login-renacer-icon"
+                 viewBox="0 0 50 50"
+                 fill="none">
+
+                <path
+                    d="M25 43 C8 35 5 20 12 8 C22 13 27 25 25 43Z"
+                    fill="#7950E8"/>
+
+                <path
+                    d="M25 43 C42 35 45 20 38 8 C28 13 23 25 25 43Z"
+                    fill="#A66AF2"/>
+
+                <path
+                    d="M25 43 L25 20"
+                    stroke="white"
+                    stroke-width="2.5"
+                    stroke-linecap="round"/>
+
+            </svg>
+
+            <span class="login-renacer-text">
+                <strong>Renacer</strong>
+                <span>Digital</span>
+            </span>
+
+        </a>
+
+
+        <a href="../index.html" class="login-back">
+            ← Volver al inicio
+        </a>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="login-layout">
+
+
+        <!-- PRESENTACIÓN -->
+
+        <section class="login-welcome">
+
+            <span class="login-tag">
+                ✦ TU ESPACIO PERSONAL
+            </span>
+
+
+            <h1>
+                Bienvenido<br>
+                <span>de nuevo.</span>
+            </h1>
+
+
+            <p>
+                Cada paso cuenta. Continúa tu proceso,
+                registra tus avances y encuentra un espacio
+                para comprender tus emociones.
+            </p>
+
+
+            <div class="welcome-features">
+
+                <div>
+                    <span class="welcome-feature-icon">✦</span>
+                    <span>Tu progreso, a tu ritmo</span>
+                </div>
+
+                <div>
+                    <span class="welcome-feature-icon">♡</span>
+                    <span>Un espacio de acompañamiento</span>
+                </div>
+
+                <div>
+                    <span class="welcome-feature-icon">✓</span>
+                    <span>Pequeños pasos, grandes cambios</span>
+                </div>
+
+            </div>
+
+
+            <div class="login-quote">
+
+                <span>“</span>
+
+                <p>
+                    No necesitas tener todo resuelto hoy.
+                    Solo necesitas darte la oportunidad de continuar.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FORMULARIO DE INICIO DE SESIÓN -->
+
+        <section class="login-form-area">
+
+            <div class="login-glass-card">
+
+                <div class="login-card-icon">✦</div>
+
+
+                <div class="login-card-heading">
+
+                    <h2>¡Qué bueno verte!</h2>
+
+                    <p>Ingresa a tu espacio personal.</p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+
+                    <!-- CORREO -->
+
+                    <div class="login-field">
+
+                        <label for="loginEmail">
+                            Correo electrónico
+                        </label>
+
+                        <div class="login-input-wrap">
+
+                            <span class="input-symbol">@</span>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                placeholder="nombre@correo.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="login-field">
+
+                        <div class="login-label-row">
+
+                            <label for="loginPassword">
+                                Contraseña
+                            </label>
+
+                            <a href="#" id="forgotPassword">
+                                ¿La olvidaste?
+                            </a>
+
+                        </div>
+
+
+                        <div class="login-input-wrap">
+
+                            <span class="input-symbol">✧</span>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Tu contraseña"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                                aria-label="Mostrar contraseña"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RECORDAR CORREO -->
+
+                    <label class="remember-row">
+
+                        <input type="checkbox" id="rememberMe">
+
+                        <span>Recordar mi correo</span>
+
+                    </label>
+
+
+                    <div
+                        id="loginMessage"
+                        class="login-message"
+                        role="status"
+                        aria-live="polite">
+                    </div>
+
+
+                    <!-- BOTÓN INICIAR SESIÓN -->
+
+                    <button type="submit" class="login-submit">
+
+                        Iniciar mi sesión
+
+                        <span>→</span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- CREAR CUENTA -->
+
+                <div class="login-separator">
+
+                    <span>¿Aún no tienes cuenta?</span>
+
+                </div>
+
+
+                <a href="registro.html" class="login-create">
+
+                    ✦ Crear mi cuenta gratis
+
+                </a>
+
+
+                <!-- PRIVACIDAD -->
+
+                <div class="login-privacy">
+
+                    <span>🔒</span>
+
+                    <p>
+                        Tu espacio personal merece privacidad.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p class="login-disclaimer">
+
+                Renacer Digital ofrece acompañamiento digital
+                y no sustituye la atención médica o psicológica
+                profesional.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/supabase-config.js"></script>
+
+    <script src="../js/login.js"></script>
+
+</body>
+</html>

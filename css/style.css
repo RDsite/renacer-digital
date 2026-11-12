@@ -1,0 +1,2221 @@
+
+/* ============================================================
+   RDCA PREMIUM 2.0
+   Renacer Digital | Plataforma de bienestar digital
+   Paleta: morado elegante + celeste pastel + verde menta
+   Archivo: css/style.css
+   Compatible con el HTML existente
+   ============================================================ */
+
+
+/* ============================================================
+   01. SISTEMA VISUAL Y VARIABLES
+   ============================================================ */
+
+:root {
+    --purple: #7040D5;
+    --purple-light: #9474E8;
+    --purple-dark: #4D2C91;
+    --purple-deep: #2F2050;
+
+    --lavender: #F0E9FF;
+    --lavender-light: #FAF8FF;
+    --lavender-border: #E5DBFA;
+
+    --blue: #B8DDF6;
+    --blue-light: #EDF7FF;
+    --blue-dark: #447DA5;
+
+    --mint: #B4E8D0;
+    --mint-light: #EDFAF3;
+    --mint-dark: #327B5C;
+
+    --text: #30263F;
+    --muted: #777084;
+    --white: #FFFFFF;
+    --border: #EBE5F4;
+
+    --shadow-soft: 0 8px 25px rgba(57, 35, 94, 0.055);
+    --shadow-card: 0 16px 42px rgba(57, 35, 94, 0.085);
+    --shadow-hover: 0 25px 55px rgba(57, 35, 94, 0.13);
+
+    --radius-small: 12px;
+    --radius-medium: 20px;
+    --radius-large: 28px;
+
+    --transition: 280ms ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #FFFFFF;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    color: var(--purple-deep);
+    background: #DFD3FF;
+}
+
+
+/* ============================================================
+   02. NAVEGACIÓN PREMIUM
+   ============================================================ */
+
+.navbar {
+    min-height: 86px;
+    padding: 14px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.91);
+    border-bottom: 1px solid rgba(229, 219, 250, 0.8);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow: 0 5px 25px rgba(47, 32, 80, 0.045);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 49px;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        #A58DF1 0%,
+        #7950DC 52%,
+        #507EB5 100%
+    );
+
+    color: #FFFFFF;
+    font-size: 23px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(112, 64, 213, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+    transition: transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.logo-icon::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: -19px;
+    right: -12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.logo:hover .logo-icon {
+    transform: translateY(-2px) rotate(-4deg);
+    box-shadow: 0 12px 27px rgba(112, 64, 213, 0.32);
+}
+
+.logo h2 {
+    color: var(--purple-dark);
+    font-size: 21px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.35px;
+}
+
+
+/* Menú de navegación */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    position: relative;
+    color: #61596E;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+
+    transition: color var(--transition);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+
+    width: 0;
+    height: 3px;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        #8C79E4,
+        var(--mint-dark)
+    );
+
+    transition: width var(--transition);
+}
+
+nav a:hover {
+    color: var(--purple);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* Botones del menú */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+}
+
+.login {
+    padding: 10px 13px;
+    border-radius: 11px;
+
+    color: var(--purple-dark);
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: background var(--transition),
+                color var(--transition);
+}
+
+.login:hover {
+    color: var(--purple);
+    background: var(--lavender);
+}
+
+.register {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 19px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 13px;
+
+    background: linear-gradient(
+        120deg,
+        #7040D5,
+        #8058DC 55%,
+        #648EC9
+    );
+
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 750;
+
+    box-shadow: 0 8px 20px rgba(112, 64, 213, 0.23);
+
+    transition: transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.register:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 28px rgba(112, 64, 213, 0.32);
+}
+
+
+/* ============================================================
+   03. PORTADA: COMPOSICIÓN VISUAL PREMIUM
+   ============================================================ */
+
+.hero {
+    min-height: 700px;
+    padding: 100px 8.5%;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+    align-items: center;
+    gap: 68px;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 2% 20%,
+            rgba(180, 232, 208, 0.48),
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 93% 10%,
+            rgba(184, 221, 246, 0.58),
+            transparent 34%
+        ),
+        radial-gradient(
+            ellipse at 75% 100%,
+            rgba(198, 180, 247, 0.37),
+            transparent 40%
+        ),
+        linear-gradient(
+            130deg,
+            #FFFFFF 0%,
+            #F8F4FF 47%,
+            #EFF8FF 100%
+        );
+}
+
+
+/* Círculos decorativos de fondo */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 420px;
+    height: 420px;
+    top: -255px;
+    left: 32%;
+
+    border: 1px solid rgba(112, 64, 213, 0.09);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.12),
+        0 0 0 70px rgba(112, 64, 213, 0.025);
+
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 260px;
+    height: 260px;
+    right: -110px;
+    bottom: -110px;
+
+    border-radius: 50%;
+    background: rgba(180, 232, 208, 0.25);
+    filter: blur(5px);
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Etiqueta de bienvenida */
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 10px 16px;
+    margin-bottom: 28px;
+
+    color: var(--purple-dark);
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid #DFD3FA;
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 0.25px;
+
+    box-shadow: 0 7px 22px rgba(74, 43, 145, 0.065);
+}
+
+.tag::first-letter {
+    color: var(--purple);
+}
+
+
+/* Título principal */
+
+.hero h1 {
+    max-width: 690px;
+    margin-bottom: 27px;
+
+    color: var(--purple-deep);
+    font-size: clamp(47px, 5.2vw, 73px);
+    font-weight: 800;
+    line-height: 1.055;
+    letter-spacing: -3.2px;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        100deg,
+        #7040D5 0%,
+        #8772DF 45%,
+        #398F70 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* Texto de presentación */
+
+.hero-content > p {
+    max-width: 590px;
+    margin-bottom: 33px;
+
+    color: #70687E;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.hero-content > p strong {
+    color: var(--purple-dark);
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   04. BOTONES DE LA PORTADA
+   ============================================================ */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 24px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+}
+
+.primary-button,
+.secondary-button {
+    min-height: 53px;
+    padding: 15px 23px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 750;
+    text-align: center;
+
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                background var(--transition),
+                border-color var(--transition);
+}
+
+.primary-button {
+    color: #FFFFFF;
+
+    background: linear-gradient(
+        115deg,
+        #7040D5 0%,
+        #8055DA 55%,
+        #638FCB 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    box-shadow:
+        0 10px 25px rgba(112, 64, 213, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.primary-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 16px 34px rgba(112, 64, 213, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.secondary-button {
+    color: var(--purple-dark);
+    background: rgba(255, 255, 255, 0.86);
+
+    border: 1px solid #DED4F0;
+
+    box-shadow: 0 5px 16px rgba(47, 32, 80, 0.045);
+}
+
+.secondary-button:hover {
+    transform: translateY(-4px);
+    background: #FFFFFF;
+    border-color: #B8A5E9;
+    box-shadow: var(--shadow-card);
+}
+
+.privacy {
+    color: #777085;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* ============================================================
+   05. PANEL DE PROGRESO
+   ============================================================ */
+
+.hero-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 34px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(250, 247, 255, 0.96)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.96);
+    border-radius: 29px;
+
+    box-shadow:
+        0 28px 75px rgba(57, 35, 94, 0.13),
+        0 6px 18px rgba(57, 35, 94, 0.04);
+
+    transition: transform var(--transition),
+                box-shadow var(--transition);
+}
+
+
+/* Todos los contenidos quedan encima de los detalles decorativos */
+
+.hero-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 34px 85px rgba(57, 35, 94, 0.16);
+}
+
+
+/* Línea superior multicolor */
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #8ADAB4,
+        #A9D8F5 45%,
+        #8055DA
+    );
+}
+
+
+/* Círculo ornamental */
+
+.hero-card::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+
+    width: 190px;
+    height: 190px;
+    top: 65px;
+    right: -120px;
+
+    border-radius: 50%;
+    background: rgba(184, 221, 246, 0.20);
+    border: 1px solid rgba(112, 64, 213, 0.06);
+
+    pointer-events: none;
+}
+
+
+/* Encabezado de estado */
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 28px;
+
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.active {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 11px;
+
+    color: #287653;
+    background: #E6F8EE;
+    border: 1px solid #C8EED9;
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 750;
+}
+
+
+/* Indicador principal */
+
+.days {
+    padding: 13px 0 5px;
+    text-align: center;
+}
+
+.days strong {
+    display: block;
+
+    color: var(--purple);
+    font-size: 84px;
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -4px;
+
+    background: linear-gradient(
+        135deg,
+        #7040D5 0%,
+        #8972DF 52%,
+        #398F70 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.days span {
+    display: block;
+    margin-top: 11px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* Barra de progreso */
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+
+    margin: 27px 0;
+
+    overflow: hidden;
+    background: #F0ECF7;
+    border: 1px solid #E8E0F4;
+    border-radius: 20px;
+}
+
+.progress {
+    width: 72%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #8BDAB5 0%,
+        #A8D7F3 48%,
+        #8055DA 100%
+    );
+
+    box-shadow: 0 0 14px rgba(112, 64, 213, 0.18);
+}
+
+
+/* Estadísticas */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.stats div {
+    min-width: 0;
+    padding: 17px 5px;
+
+    background: #FFFFFF;
+    border: 1px solid #EBE4F5;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 13px rgba(57, 35, 94, 0.025);
+
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
+}
+
+.stats div:nth-child(1) {
+    background: linear-gradient(145deg, #F4EEFF, #FFFFFF);
+}
+
+.stats div:nth-child(2) {
+    background: linear-gradient(145deg, #EBF7FF, #FFFFFF);
+}
+
+.stats div:nth-child(3) {
+    background: linear-gradient(145deg, #ECFAF2, #FFFFFF);
+}
+
+.stats div:hover {
+    transform: translateY(-4px);
+    border-color: #D5C7F0;
+    box-shadow: var(--shadow-soft);
+}
+
+.stats strong {
+    display: block;
+    margin-bottom: 5px;
+
+    color: var(--purple-dark);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.stats span {
+    display: block;
+
+    color: #777085;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* Mensaje motivacional */
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    padding: 18px;
+
+    background: linear-gradient(
+        115deg,
+        #EAF8F0 0%,
+        #EDF7FF 54%,
+        #F5F0FF 100%
+    );
+
+    border: 1px solid #DFEAE8;
+    border-radius: 17px;
+}
+
+.message > span {
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: var(--purple);
+
+    font-size: 20px;
+
+    box-shadow: 0 4px 12px rgba(57, 35, 94, 0.06);
+}
+
+.message strong {
+    color: var(--purple-dark);
+    font-size: 14px;
+}
+
+.message p {
+    margin-top: 5px;
+
+    color: #686176;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   06. SECCIÓN DE BIENESTAR
+   ============================================================ */
+
+.features {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 105px 8.5%;
+
+    background:
+        radial-gradient(
+            ellipse at 0% 30%,
+            rgba(180, 232, 208, 0.18),
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 100% 80%,
+            rgba(184, 221, 246, 0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #FFFFFF 0%,
+            #FBF9FF 55%,
+            #F5FAFF 100%
+        );
+}
+
+
+/* Encabezado de la sección */
+
+.section-title {
+    max-width: 760px;
+    margin: 0 auto 58px;
+    text-align: center;
+}
+
+.section-title > span {
+    display: inline-block;
+
+    margin-bottom: 12px;
+    padding: 7px 14px;
+
+    color: #327B5C;
+    background: #EAF8F0;
+    border: 1px solid #D5EFE1;
+    border-radius: 30px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.section-title h2 {
+    margin: 10px 0 15px;
+
+    color: var(--purple-deep);
+    font-size: clamp(32px, 4vw, 45px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+}
+
+.section-title p {
+    max-width: 620px;
+    margin: 0 auto;
+
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* ============================================================
+   07. TARJETAS CON IDENTIDAD VISUAL
+   ============================================================ */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 21px;
+
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    display: block;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 29px 24px;
+
+    color: inherit;
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #EAE3F5;
+    border-radius: 22px;
+
+    box-shadow: 0 10px 28px rgba(57, 35, 94, 0.045);
+
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition),
+                background var(--transition);
+}
+
+
+/* Acento superior */
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+    opacity: 0;
+
+    background: linear-gradient(
+        90deg,
+        #8BDAB5,
+        #A9D8F5,
+        #8055DA
+    );
+
+    transition: opacity var(--transition);
+}
+
+
+/* Luz decorativa */
+
+.feature-card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 120px;
+    height: 120px;
+    right: -70px;
+    bottom: -75px;
+
+    border-radius: 50%;
+    background: rgba(184, 221, 246, 0.14);
+
+    transition: transform var(--transition),
+                background var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #D6C8F2;
+
+    box-shadow:
+        0 24px 48px rgba(57, 35, 94, 0.105),
+        0 5px 15px rgba(57, 35, 94, 0.035);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card:hover::after {
+    transform: scale(1.45);
+    background: rgba(180, 232, 208, 0.24);
+}
+
+
+/* Iconos decorativos */
+
+.feature-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 21px;
+
+    color: var(--purple);
+    background: linear-gradient(
+        135deg,
+        #E3F7EC 0%,
+        #E4F1FF 52%,
+        #EFE6FF 100%
+    );
+
+    border: 1px solid rgba(112, 64, 213, 0.06);
+    border-radius: 18px;
+
+    font-size: 25px;
+
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    transition: transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+    transform: translateY(-2px) scale(1.07) rotate(-3deg);
+    box-shadow: 0 9px 20px rgba(112, 64, 213, 0.10);
+}
+
+
+/* Títulos y descripciones */
+
+.feature-card h3 {
+    margin-bottom: 11px;
+
+    color: #382A4D;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.feature-card p {
+    color: #746D80;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+
+/* ============================================================
+   08. PIE DE PÁGINA
+   ============================================================ */
+
+footer {
+    min-height: 150px;
+    padding: 35px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background:
+        radial-gradient(
+            ellipse at 0% 0%,
+            rgba(180, 232, 208, 0.12),
+            transparent 34%
+        ),
+        radial-gradient(
+            ellipse at 100% 100%,
+            rgba(184, 221, 246, 0.12),
+            transparent 36%
+        ),
+        linear-gradient(
+            115deg,
+            #302052 0%,
+            #49346F 55%,
+            #34516F 100%
+        );
+
+    color: #EAE4F5;
+    font-size: 12px;
+}
+
+footer > div {
+    flex-shrink: 0;
+}
+
+footer strong {
+    margin-right: 8px;
+
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+footer > div span {
+    color: #D6CBEA;
+}
+
+footer p {
+    max-width: 450px;
+
+    color: #E3DDEE;
+    text-align: center;
+    line-height: 1.8;
+}
+
+footer a {
+    color: #D6EDFF;
+    text-decoration: none;
+
+    transition: color var(--transition);
+}
+
+footer a:hover {
+    color: var(--mint);
+}
+
+
+/* ============================================================
+   09. TABLETAS Y PANTALLAS MEDIANAS
+   ============================================================ */
+
+@media (max-width: 1200px) {
+    .navbar {
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    .hero {
+        gap: 38px;
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero h1 {
+        font-size: clamp(43px, 5vw, 62px);
+    }
+
+    .hero-card {
+        padding: 28px;
+    }
+
+    .features {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .feature-grid {
+        gap: 16px;
+    }
+
+    .feature-card {
+        padding: 25px 19px;
+    }
+}
+
+
+/* En pantallas más estrechas, priorizar el contenido */
+
+@media (max-width: 1000px) {
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 45px;
+
+        padding-top: 75px;
+        padding-bottom: 80px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero h1 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-content > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 590px;
+        margin: 0 auto;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* ============================================================
+   10. CELULARES
+   ============================================================ */
+
+@media (max-width: 650px) {
+    .navbar {
+        min-height: 72px;
+        padding: 11px 4%;
+        gap: 8px;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+        font-size: 19px;
+    }
+
+    .logo h2 {
+        font-size: 17px;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .nav-buttons {
+        gap: 4px;
+    }
+
+    .login {
+        display: none;
+    }
+
+    .register {
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 11px;
+    }
+
+    .hero {
+        padding: 55px 6% 60px;
+        gap: 35px;
+    }
+
+    .tag {
+        max-width: 100%;
+        padding: 8px 12px;
+        margin-bottom: 21px;
+        font-size: 10px;
+        letter-spacing: 0.1px;
+    }
+
+    .hero h1 {
+        font-size: clamp(37px, 10vw, 49px);
+        line-height: 1.12;
+        letter-spacing: -1.8px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content > p {
+        font-size: 13px;
+        line-height: 1.9;
+        margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        min-height: 50px;
+        padding: 14px 17px;
+    }
+
+    .hero-card {
+        padding: 24px 18px;
+        border-radius: 23px;
+    }
+
+    .status {
+        margin-bottom: 23px;
+    }
+
+    .days strong {
+        font-size: 66px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .stats div {
+        padding: 13px 3px;
+        border-radius: 12px;
+    }
+
+    .stats strong {
+        font-size: 19px;
+    }
+
+    .stats span {
+        font-size: 9px;
+    }
+
+    .message {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .message p {
+        font-size: 12px;
+    }
+
+    .features {
+        padding: 72px 6%;
+    }
+
+    .section-title {
+        margin-bottom: 38px;
+    }
+
+    .section-title > span {
+        font-size: 9px;
+        letter-spacing: 1.2px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+        letter-spacing: -0.7px;
+    }
+
+    .section-title p {
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .feature-card {
+        padding: 24px;
+        border-radius: 19px;
+    }
+
+    .feature-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        margin-bottom: 17px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 34px 7%;
+        gap: 17px;
+    }
+
+    footer p {
+        text-align: center;
+    }
+}
+
+
+/* ============================================================
+   11. ACCESIBILIDAD
+   ============================================================ */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #83BFEA;
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ======================================
+   RDCA - FONDO ANIMADO
+====================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(
+        125deg,
+        #e5fff2 0%,
+        #f4efff 48%,
+        #dceeff 100%
+    );
+}
+
+/* Luces ambientales */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    top: -220px;
+    right: 15%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(132, 82, 255, .22),
+        transparent 70%
+    );
+    filter: blur(25px);
+    animation: luzFlotante 12s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    bottom: -250px;
+    left: -100px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(25, 190, 125, .25),
+        transparent 70%
+    );
+    filter: blur(30px);
+    animation: luzFlotante 9s ease-in-out infinite alternate-reverse;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes luzFlotante {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(65px, 35px) scale(1.2);
+    }
+}
+
+/* Capa de burbujas */
+
+.bubbles-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.65);
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,.8),
+        rgba(126,87,245,.12) 45%,
+        rgba(30,190,130,.08) 75%,
+        transparent
+    );
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.5),
+        0 0 25px rgba(126,87,245,.08);
+    animation: subirBurbuja linear infinite;
+    opacity: .7;
+}
+
+@keyframes subirBurbuja {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
+    }
+    12% {
+        opacity: .7;
+    }
+    85% {
+        opacity: .6;
+    }
+    100% {
+        transform: translate3d(
+            var(--desplazamiento),
+            -1100px,
+            0
+        );
+        opacity: 0;
+    }
+}
+
+/* Partículas pequeñas */
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #8b5cf6;
+    box-shadow: 0 0 14px currentColor;
+    animation: flotarParticula ease-in-out infinite alternate;
+}
+
+@keyframes flotarParticula {
+    from {
+        transform: translateY(0) scale(.8);
+        opacity: .25;
+    }
+    to {
+        transform: translateY(-35px) scale(1.3);
+        opacity: .85;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bubble,
+    .particle,
+    .hero::before,
+    .hero::after {
+        animation: none !important;
+    }
+}
+ 
+
+/* ======================================
+   RDCA - BOTONES PREMIUM ANIMADOS
+====================================== */
+
+.primary-button,
+.register,
+.auth-submit {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255,255,255,.25);
+    background: linear-gradient(
+        120deg,
+        #7436e8,
+        #9758f5,
+        #16b987
+    );
+    background-size: 200% 200%;
+    color: white;
+    font-weight: 800;
+    letter-spacing: .2px;
+    box-shadow:
+        0 10px 25px rgba(112,58,220,.25),
+        inset 0 1px 0 rgba(255,255,255,.3);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background-position .5s ease;
+}
+
+.primary-button::before,
+.register::before,
+.auth-submit::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -80%;
+    width: 50%;
+    height: 300%;
+    transform: rotate(25deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+    transition: left .65s ease;
+    pointer-events: none;
+}
+
+.primary-button:hover,
+.register:hover,
+.auth-submit:hover {
+    transform: translateY(-5px) scale(1.025);
+    background-position: 100% 50%;
+    box-shadow:
+        0 16px 38px rgba(112,58,220,.35),
+        0 0 25px rgba(34,197,150,.18);
+}
+
+.primary-button:hover::before,
+.register:hover::before,
+.auth-submit:hover::before {
+    left: 140%;
+}
+
+/* Botón secundario */
+
+.secondary-button {
+    position: relative;
+    border: 1.5px solid rgba(124,58,237,.35);
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(12px);
+    color: #6631c2;
+    box-shadow: 0 7px 22px rgba(98,55,175,.08);
+    transition: all .3s ease;
+}
+
+.secondary-button:hover {
+    background: #f1eaff;
+    color: #5123ad;
+    border-color: #8b5cf6;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(124,58,237,.18);
+}
+
+/* Tarjeta de progreso estilo cristal */
+
+.hero-card {
+    background: rgba(255,255,255,.80);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.85);
+    box-shadow:
+        0 25px 70px rgba(79,55,139,.13),
+        inset 0 1px 0 rgba(255,255,255,.9);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.hero-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 32px 80px rgba(79,55,139,.20);
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.register:focus-visible,
+.auth-submit:focus-visible {
+    outline: 3px solid #16a34a;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .primary-button,
+    .secondary-button,
+    .register,
+    .auth-submit,
+    .hero-card {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   RDCA - FONDO DE COLORES CAMBIANTES
+========================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background: linear-gradient(
+        125deg,
+        #d8ffed,
+        #e6dcff,
+        #d7efff,
+        #ffe2f2,
+        #d9fff0
+    );
+
+    background-size: 400% 400%;
+
+    animation: fondoCambiante 18s ease-in-out infinite;
+}
+
+/* Movimiento suave de los colores */
+
+@keyframes fondoCambiante {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 100%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Luces difuminadas adicionales */
+
+.hero::before {
+    background: radial-gradient(
+        circle,
+        rgba(160, 110, 255, 0.28),
+        rgba(120, 180, 255, 0.12) 45%,
+        transparent 75%
+    );
+
+    filter: blur(45px);
+
+    animation: luzFlotante 14s ease-in-out infinite alternate;
+}
+
+.hero::after {
+    background: radial-gradient(
+        circle,
+        rgba(30, 210, 150, 0.30),
+        rgba(100, 220, 200, 0.12) 45%,
+        transparent 75%
+    );
+
+    filter: blur(50px);
+
+    animation: luzFlotante 11s ease-in-out infinite alternate-reverse;
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero,
+    .hero::before,
+    .hero::after {
+        animation: none !important;
+    }
+}
+
+
+/* ========================================
+   RDCA - TITULO PRINCIPAL ANIMADO
+======================================== */
+
+.hero .hero-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(48px, 5.6vw, 94px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -3px;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+/* Cada línea */
+
+.hero-title .title-line {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    padding-bottom: .06em;
+    animation: entradaTitulo .9s ease both;
+}
+
+.hero-title .title-line:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.hero-title .title-line:nth-child(3) {
+    animation-delay: .4s;
+}
+
+/* Letras oscuras */
+
+.hero-title .title-dark {
+    color: #291b48;
+}
+
+/* Degradado animado */
+
+.hero-title .title-gradient {
+    background: linear-gradient(
+        100deg,
+        #12a66a,
+        #2bc6a2,
+        #7c3aed,
+        #b36aff,
+        #12a66a
+    );
+
+    background-size: 300% 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        entradaTitulo .9s ease .2s both,
+        colorTitulo 7s ease-in-out infinite;
+}
+
+/* Punto de color */
+
+.hero-title .title-dot {
+    color: #8b5cf6;
+    -webkit-text-fill-color: #8b5cf6;
+}
+
+/* Animación del degradado */
+
+@keyframes colorTitulo {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Entrada suave */
+
+@keyframes entradaTitulo {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Brillo al pasar el mouse */
+
+.hero-title .title-gradient:hover {
+    filter: drop-shadow(
+        0 0 16px rgba(124,58,237,.35)
+    );
+}
+
+/* Celulares */
+
+@media (max-width: 650px) {
+    .hero .hero-title {
+        font-size: clamp(38px, 9vw, 55px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-title .title-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-title .title-line,
+    .hero-title .title-gradient {
+        animation: none;
+    }
+}
+
+
+/* ==========================================
+   RDCA - LOGO OFICIAL
+========================================== */
+
+.logo-rdca,
+.login-brand,
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Logo principal */
+
+.rdca-logo-img {
+    display: block;
+    width: 155px;
+    height: 72px;
+    object-fit: contain;
+    object-position: left center;
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+/* Efecto al pasar el mouse */
+
+.logo-rdca:hover .rdca-logo-img,
+.login-brand:hover .rdca-logo-img,
+.auth-logo:hover .rdca-logo-img {
+    transform: scale(1.06);
+    filter: drop-shadow(
+        0 4px 12px rgba(124,58,237,.25)
+    );
+}
+
+/* Logo del inicio */
+
+.navbar .rdca-logo-img {
+    width: 155px;
+    height: 72px;
+}
+
+/* Logo del login */
+
+.login-header .rdca-logo-img {
+    width: 165px;
+    height: 74px;
+}
+
+/* Logo del registro */
+
+.auth-header .rdca-logo-img {
+    width: 165px;
+    height: 74px;
+}
+
+/* Versión celular */
+
+@media (max-width: 600px) {
+    .navbar .rdca-logo-img,
+    .login-header .rdca-logo-img,
+    .auth-header .rdca-logo-img {
+        width: 120px;
+        height: 60px;
+    }
+}
+
+
+/* LOGO RDCA EN LOGIN Y REGISTRO */
+
+.login-header .rdca-logo-img,
+.auth-header .rdca-logo-img {
+    display: block;
+    width: 170px;
+    height: 78px;
+    object-fit: contain;
+    object-position: left center;
+    transition: transform .3s ease;
+}
+
+.login-brand:hover .rdca-logo-img,
+.auth-logo:hover .rdca-logo-img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .login-header .rdca-logo-img,
+    .auth-header .rdca-logo-img {
+        width: 125px;
+        height: 65px;
+    }
+}
+
+
+/* Tarjetas que aparecen al hacer scroll */
+
+.reveal-card {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Evitar que el menú tape las secciones */
+
+html {
+    scroll-padding-top: 100px;
+}
+
+/* Mejorar los botones */
+
+.primary-button,
+.secondary-button,
+.register {
+    cursor: pointer;
+}
+
+/* Tarjeta de progreso */
+
+.hero-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Adaptación para celulares */
+
+@media (max-width: 900px) {
+
+    .hero-card {
+        transform: none !important;
+    }
+
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hero-card {
+        transform: none !important;
+    }
+
+}
+
+
+/* =====================================
+   LOGO RENACER DIGITAL
+===================================== */
+
+.renacer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.renacer-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.renacer-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 25px;
+    color: #30204f;
+    letter-spacing: -0.7px;
+}
+
+.renacer-text strong {
+    font-weight: 800;
+}
+
+.renacer-text span {
+    font-weight: 400;
+    color: #7453c9;
+}
+
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.renacer-brand:hover .renacer-icon {
+    transform: scale(1.08);
+    transition: 0.3s ease;
+}
+
+.renacer-brand:hover .renacer-text {
+    opacity: 0.85;
+    transition: 0.3s ease;
+}
+
+
+/* AJUSTE PARA PANTALLAS PEQUEÑAS */
+
+@media screen and (max-width: 768px) {
+
+    .renacer-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .renacer-text {
+        font-size: 21px;
+    }
+
+}
+
+/* ==========================================
+   RENACER DIGITAL
+   ESTILO GLOBAL DE BOTONES
+   VERDE AGUA + VIOLETA
+========================================== */
+
+/* BOTONES PRINCIPALES */
+
+button,
+input[type="submit"],
+.primary-button,
+.secondary-button,
+.login,
+.register,
+.login-submit,
+.login-create,
+button[type="submit"] {
+
+    background: linear-gradient(
+        115deg,
+        #13B98B,
+        #5689CE,
+        #8044E8
+    );
+
+    background-size: 200% 200%;
+
+    color: #ffffff !important;
+
+    border: none;
+    border-radius: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 20px rgba(91, 91, 190, 0.20);
+
+    transition: all 0.3s ease;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+
+button:hover,
+input[type="submit"]:hover,
+.primary-button:hover,
+.secondary-button:hover,
+.login:hover,
+.register:hover,
+.login-submit:hover,
+.login-create:hover {
+
+    background-position: 100% 50%;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 28px rgba(117, 64, 221, 0.30);
+}
+
+/* EFECTO AL PRESIONAR */
+
+button:active,
+input[type="submit"]:active,
+.primary-button:active,
+.secondary-button:active,
+.login:active,
+.register:active,
+.login-submit:active,
+.login-create:active {
+
+    transform: scale(0.97);
+}
+
+/* ACCESIBILIDAD */
+
+button:focus-visible,
+a.primary-button:focus-visible,
+a.secondary-button:focus-visible,
+a.login:focus-visible,
+a.register:focus-visible {
+
+    outline: 3px solid rgba(19, 185, 139, 0.5);
+    outline-offset: 4px;
+}
+
+/* BOTONES DESHABILITADOS */
+
+button:disabled,
+input[type="submit"]:disabled {
+
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
